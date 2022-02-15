@@ -29,3 +29,4 @@ export const Item = ({ text, completed, toggleChecked, id, removeTask }) => {
     </ListItem>
   );
 };
+

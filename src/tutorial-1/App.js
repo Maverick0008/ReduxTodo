@@ -9,13 +9,11 @@ function reducer(state, action) {
       const objNewTask = {
         id: state.length + 1,
         text: action.payload.text,
-        completed: action.payload.completed
-        
+        completed: action.payload.completed,
       };
       return [...state, objNewTask];
     }
     case "TOGGLE_CHECKED": {
-      
       const newState = state.map((obj) => {
         if (obj.id === action.id) {
           return {
@@ -28,10 +26,9 @@ function reducer(state, action) {
       return newState;
     }
     case "REMOVE_TASK": {
-      if(window.confirm('Вы действительнго хотите удалить задачу?')) {
+      if (window.confirm("Вы действительнго хотите удалить задачу?")) {
         return state.filter((obj) => obj.id !== action.id);
       }
-      
     }
     default:
       return state;
@@ -44,8 +41,8 @@ function App() {
       type: "ADD_TASK",
       payload: {
         text,
-        completed
-      }
+        completed,
+      },
     });
   };
   const toggleChecked = (id) => {
